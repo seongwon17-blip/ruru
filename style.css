@@ -113,6 +113,81 @@ nav ul li { margin-left: 2rem; font-weight: 500; }
 .feature-card:hover { box-shadow: 0 10px 30px var(--shadow-color); }
 .feature-card h3 { margin: 20px 0; color: var(--primary-color); }
 
+/* 공추첨게임 섹션 */
+.lottery-game {
+    padding: 80px 10%;
+    text-align: center;
+    background-color: var(--background-color);
+    transition: background-color 0.3s ease;
+}
+
+.lottery-game h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.lottery-game p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+.lottery-controls {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.lottery-controls label {
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.lottery-controls input[type="number"] {
+    padding: 10px 15px;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    background-color: var(--card-background);
+    color: var(--text-color);
+    width: 80px;
+    text-align: center;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.lottery-controls input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.lottery-results {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    min-height: 80px; /* Ensure space for results */
+    align-items: center;
+}
+
+.lottery-ball {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover-color));
+    color: var(--footer-text-color);
+    font-size: 1.8rem;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
 /* 상세 설명 섹션 */
 .details {
     padding: 80px 10%;
@@ -148,4 +223,5 @@ footer {
     .features { grid-template-columns: 1fr; }
     .details-content { flex-direction: column; }
     .hero h1 { font-size: 2rem; }
+    .lottery-controls { flex-direction: column; }
 }

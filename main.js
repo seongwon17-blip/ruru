@@ -37,4 +37,41 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('theme', 'dark');
         }
     });
+
+    // Lottery Game Logic
+    const maxNumberInput = document.getElementById('max-number');
+    const numBallsInput = document.getElementById('num-balls');
+    const drawBallsBtn = document.getElementById('draw-balls-btn');
+    const lotteryResultsDiv = document.getElementById('lottery-results');
+
+    drawBallsBtn.addEventListener('click', () => {
+        const maxNumber = parseInt(maxNumberInput.value);
+        const numBalls = parseInt(numBallsInput.value);
+
+        if (isNaN(maxNumber) || maxNumber < 1) {
+            alert('최대 숫자는 1 이상의 유효한 숫자여야 합니다.');
+            return;
+        }
+        if (isNaN(numBalls) || numBalls < 1) {
+            alert('뽑을 개수는 1 이상의 유효한 숫자여야 합니다.');
+            return;
+        }
+        if (numBalls > maxNumber) {
+            alert('뽑을 개수는 최대 숫자보다 클 수 없습니다.');
+            return;
+        }
+
+        const numbers = new Set();
+        while (numbers.size < numBalls) {
+            numbers.add(Math.floor(Math.random() * maxNumber) + 1);
+        }
+
+        lotteryResultsDiv.innerHTML = ''; // Clear previous results
+        numbers.forEach(number => {
+            const ball = document.createElement('span');
+            ball.classList.add('lottery-ball');
+            ball.textContent = number;
+            lotteryResultsDiv.appendChild(ball);
+        });
+    });
 });
